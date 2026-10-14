@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CÁSPITA.Custom · Tenis y chamarras pintados a mano en CDMX</title>
+<meta name="description" content="Tenis, chamarras, tote bags y cuadros pintados a mano en la Ciudad de México. Diseños personalizados, envíos gratis a todo México. Cotiza por WhatsApp.">
+<meta property="og:title" content="CÁSPITA.Custom · Pintando para personas diferentes">
+<meta property="og:description" content="Tenis y chamarras personalizadas, pintadas a mano en CDMX. Envíos gratis a todo México.">
+<meta property="og:image" content="img/c-koi.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1f9e77">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Gochi+Hand&display=swap">
+<style>
+/* Layout: lienzo blanco con "stickers" de fotos inclinadas; franja de mezclilla para el proceso; cada sección se pinta con un color del logo */
+:root{
+  --lienzo:#fffdf8;
+  --lienzo-2:#f4f1ea;
+  --tinta:#161514;
+  --tinta-suave:#4d4a45;
+  --turquesa:#1f9e77;
+  --turquesa-tinta:#14724f;
+  --mostaza:#e2a43a;
+  --morado:#6a3fa3;
+  --rosa:#f28dc0;
+  --amarillo:#f6d23c;
+  --mezclilla:#2d4a72;
+  --mezclilla-tinta:#eef3fa;
+  --linea:#e4dfd4;
+  --sombra:#161514;
+  --f-display:"Bowlby One","Arial Black","Helvetica Neue",Impact,sans-serif;
+  --f-texto:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mano:"Gochi Hand","Comic Sans MS","Segoe Print",cursive;
+  --ancho:1180px;
+  --gutter:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --lienzo:#141513;--lienzo-2:#1d1f1b;--tinta:#f3efe6;--tinta-suave:#bdb7ab;--turquesa:#3cc596;--turquesa-tinta:#7fe0bd;
+  --mostaza:#f0b955;--morado:#a57ee0;--rosa:#f5a3cd;--amarillo:#f6d23c;--mezclilla:#1c2c44;--mezclilla-tinta:#e6edf7;--linea:#2e302b;--sombra:#000;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --lienzo:#141513;--lienzo-2:#1d1f1b;--tinta:#f3efe6;--tinta-suave:#bdb7ab;--turquesa:#3cc596;--turquesa-tinta:#7fe0bd;
+  --mostaza:#f0b955;--morado:#a57ee0;--rosa:#f5a3cd;--amarillo:#f6d23c;--mezclilla:#1c2c44;--mezclilla-tinta:#e6edf7;--linea:#2e302b;--sombra:#000;color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--lienzo);color:var(--tinta);font-family:var(--f-texto);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:.005em}
+p{margin:0}
+.wrap{max-width:var(--ancho);margin-inline:auto;padding-inline:var(--gutter)}
+.mano{font-family:var(--f-mano);font-weight:400}
+.eyebrow{font-family:var(--f-texto);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--turquesa-tinta)}
+:focus-visible{outline:3px solid var(--morado);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--f-texto);font-weight:800;font-size:1rem;text-decoration:none;padding:.85em 1.3em;border-radius:999px;border:2.5px solid var(--tinta);background:var(--lienzo);color:var(--tinta);box-shadow:4px 4px 0 var(--sombra);transition:transform .15s,box-shadow .15s;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--sombra)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--sombra)}
+.btn-wa{background:var(--turquesa);color:#fff;border-color:var(--tinta)}
+.btn svg{width:1.25em;height:1.25em;flex:none}
+
+/* Header */
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--lienzo) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:68px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-size:1.15rem;flex:none}
+.marca img{width:64px;height:auto}
+.marca span small{display:block;font-family:var(--f-texto);font-weight:600;font-size:.68rem;letter-spacing:.3em;color:var(--tinta-suave)}
+.nav{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:.95rem}
+.nav a{text-decoration:none;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:3px;border-radius:3px;background:var(--turquesa);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav a:hover::after{transform:scaleX(1)}
+.top .btn{padding:.55em 1em;font-size:.9rem;box-shadow:3px 3px 0 var(--sombra)}
+@media (max-width:900px){.nav{display:none}.top .btn{margin-left:auto}}
+@media (max-width:420px){.top .btn .txt{display:none}.marca span{display:none}}
+
+/* Hero */
+.hero{position:relative;padding-block:clamp(36px,6vw,80px) clamp(48px,7vw,96px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero-txt{min-width:0}
+.hero .mano{font-size:clamp(1.4rem,2.4vw,1.8rem);color:var(--morado);transform:rotate(-2deg);display:inline-block;margin-bottom:10px}
+.hero h1{font-size:clamp(2.7rem,7.4vw,5.6rem);color:var(--turquesa);text-shadow:.06em .06em 0 var(--sombra);-webkit-text-stroke:0}
+.hero h1 .cust{display:block;font-family:var(--f-texto);font-weight:600;font-size:.28em;letter-spacing:.55em;color:var(--tinta);text-shadow:none;margin-top:.5em;padding-left:.2em}
+.hero .lema{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:34ch;margin-top:22px;color:var(--tinta-suave)}
+.hero .lema strong{color:var(--tinta)}
+.acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.datos{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;padding:0;list-style:none;font-weight:600;font-size:.95rem}
+.datos li{display:flex;align-items:center;gap:8px}
+.datos li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c,var(--turquesa));flex:none}
+
+.collage{position:relative;aspect-ratio:1/1.02;max-width:560px;width:100%;justify-self:center}
+.sticker{position:absolute;margin:0;background:#fff;padding:8px 8px 34px;border-radius:6px;box-shadow:0 1px 0 rgba(0,0,0,.05),6px 8px 0 var(--sombra);border:2px solid var(--tinta)}
+.sticker img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.sticker figcaption{position:absolute;left:12px;right:12px;bottom:6px;font-family:var(--f-mano);font-size:1.05rem;color:#2a2826;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s1{width:58%;height:72%;left:0;top:6%;transform:rotate(-5deg);z-index:2}
+.s2{width:47%;height:56%;right:0;top:0;transform:rotate(6deg)}
+.s3{width:50%;height:46%;right:4%;bottom:0;transform:rotate(-2deg);z-index:3}
+.forma{position:absolute;z-index:4;pointer-events:none}
+.f-tri{width:56px;left:52%;top:-2%;transform:rotate(18deg)}
+.f-zz{width:110px;left:-4%;bottom:4%}
+.f-sol{width:84px;right:-2%;top:44%;z-index:1}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .collage{max-width:440px}
+}
+
+/* Cinta de productos */
+.cinta-caja{overflow:hidden;padding-block:14px}
+.cinta{background:var(--tinta);color:var(--lienzo);overflow:hidden;border-block:3px solid var(--tinta);transform:rotate(-1.2deg);margin-inline:-20px}
+.cinta-track{display:flex;gap:0;width:max-content;animation:correr 38s linear infinite}
+.cinta span{font-family:var(--f-display);font-size:clamp(1.2rem,2.6vw,1.8rem);padding:.45em .7em;white-space:nowrap;display:flex;align-items:center;gap:.7em}
+.cinta span i{display:inline-block;width:.55em;height:.55em;border-radius:50%;background:var(--c)}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* Secciones */
+section{padding-block:clamp(64px,9vw,120px)}
+.cabeza{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 40px;margin-bottom:clamp(28px,4vw,48px)}
+.cabeza h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+.cabeza p{max-width:46ch;color:var(--tinta-suave);min-width:0}
+.cabeza .eyebrow{display:block;margin-bottom:10px}
+
+/* Qué pintamos */
+.lienzos{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
+.lienzo{position:relative;text-decoration:none;display:flex;flex-direction:column;gap:12px;min-width:0}
+.lienzo .foto{aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:2.5px solid var(--tinta);box-shadow:5px 5px 0 var(--c);transition:transform .2s}
+.lienzo .foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.lienzo:hover .foto{transform:translate(-2px,-3px) rotate(-1deg)}
+.lienzo:hover .foto img{transform:scale(1.04)}
+.lienzo h3{font-size:1.45rem}
+.lienzo p{color:var(--tinta-suave);font-size:.98rem}
+@media (max-width:900px){.lienzos{grid-template-columns:repeat(2,1fr)}}
+
+/* Galería */
+.galeria-sec{background:var(--lienzo-2);border-block:1px solid var(--linea)}
+.filtros{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.filtro{font:inherit;font-weight:700;font-size:.95rem;padding:.5em 1.05em;border-radius:999px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer;transition:background .15s,color .15s}
+.filtro[aria-pressed="true"]{background:var(--tinta);color:var(--lienzo)}
+.filtro:hover:not([aria-pressed="true"]){background:color-mix(in srgb,var(--turquesa) 18%,transparent)}
+.galeria{columns:4 230px;column-gap:16px}
+.pieza{break-inside:avoid;margin:0 0 16px;position:relative;border-radius:14px;overflow:hidden;border:2px solid var(--tinta);background:var(--lienzo);cursor:zoom-in;display:block;padding:0;width:100%;font:inherit;color:inherit;text-align:left}
+.pieza img{width:100%;height:auto;transition:transform .4s}
+.pieza:hover img{transform:scale(1.03)}
+.pieza span{position:absolute;left:10px;bottom:10px;right:10px;font-weight:700;font-size:.85rem;background:color-mix(in srgb,var(--lienzo) 92%,transparent);color:var(--tinta);padding:.3em .7em;border-radius:999px;width:fit-content;max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(6px);transition:.2s}
+.pieza:hover span,.pieza:focus-visible span{opacity:1;transform:none}
+@media (hover:none){.pieza span{opacity:1;transform:none}}
+.pieza[hidden]{display:none}
+@media (max-width:560px){.galeria{columns:2;column-gap:10px}.pieza{margin-bottom:10px;border-radius:10px}}
+.mas-ig{margin-top:22px;text-align:center}
+
+dialog.visor{border:0;padding:0;background:transparent;max-width:min(92vw,980px);width:100%;color:#fff}
+dialog.visor::backdrop{background:rgba(12,12,11,.88)}
+.visor figure{margin:0;display:grid;gap:12px;justify-items:center}
+.visor img{max-height:78vh;width:auto;max-width:100%;border-radius:10px;object-fit:contain}
+.visor figcaption{font-weight:600;text-align:center}
+.visor .ctrl{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.4);color:#fff;font-size:1.5rem;cursor:pointer;display:grid;place-items:center}
+.visor .prev{left:max(12px,env(safe-area-inset-left))}.visor .next{right:max(12px,env(safe-area-inset-right))}
+.visor .cerrar{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;transform:none;width:46px;height:46px}
+@media (max-width:600px){.visor .ctrl:not(.cerrar){top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:none}}
+
+/* Cómo funciona — franja de mezclilla */
+.proceso{background:var(--mezclilla);color:var(--mezclilla-tinta);position:relative;overflow:hidden}
+.proceso::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 7px);pointer-events:none}
+.proceso .wrap{position:relative}
+.proceso .eyebrow{color:var(--amarillo)}
+.proceso .cabeza p{color:color-mix(in srgb,var(--mezclilla-tinta) 78%,transparent)}
+.pasos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,26px);counter-reset:paso}
+.paso{counter-increment:paso;border:2px dashed color-mix(in srgb,var(--mezclilla-tinta) 45%,transparent);border-radius:20px;padding:26px 22px 24px;position:relative;min-width:0}
+.paso::before{content:counter(paso);font-family:var(--f-display);font-size:2.4rem;line-height:1;color:var(--c);display:block;margin-bottom:14px;text-shadow:3px 3px 0 rgba(0,0,0,.35)}
+.paso h3{font-size:1.3rem;margin-bottom:8px;color:#fff}
+.paso p{font-size:.98rem;color:color-mix(in srgb,var(--mezclilla-tinta) 82%,transparent)}
+.proceso-extra{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,48px);margin-top:clamp(40px,6vw,72px);align-items:center}
+.proceso-fotos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.proceso-fotos img{height:auto;aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:14px;border:2px solid rgba(255,255,255,.7)}
+.proceso-fotos img:nth-child(2){transform:translateY(18px) rotate(2deg)}
+.proceso-extra .mano{font-size:clamp(1.5rem,2.6vw,2rem);color:var(--amarillo);line-height:1.2}
+.proceso-extra p+p{margin-top:12px}
+@media (max-width:900px){.pasos{grid-template-columns:1fr 1fr}.proceso-extra{grid-template-columns:1fr}}
+@media (max-width:520px){.pasos{grid-template-columns:1fr}}
+
+/* Pinta Libre */
+.taller .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.taller-fotos{position:relative;aspect-ratio:1/1;max-width:520px;width:100%}
+.taller-fotos .sticker{padding-bottom:8px}
+.taller-fotos .t1{width:64%;height:80%;left:0;top:0;transform:rotate(-3deg)}
+.taller-fotos .t2{width:52%;height:58%;right:0;bottom:0;transform:rotate(4deg);z-index:2}
+.taller h2{font-size:clamp(2.2rem,5vw,3.6rem);color:var(--morado)}
+.taller h2 small{display:block;font-family:var(--f-mano);font-size:.5em;color:var(--tinta);margin-bottom:6px}
+.taller-txt{min-width:0}
+.taller-txt>p{margin-top:16px;color:var(--tinta-suave);max-width:52ch}
+.incluye{list-style:none;padding:0;margin:22px 0 28px;display:flex;flex-wrap:wrap;gap:10px}
+.incluye li{border:2px solid var(--tinta);border-radius:999px;padding:.35em .9em;font-weight:600;font-size:.92rem;background:var(--lienzo)}
+@media (max-width:820px){.taller .wrap{grid-template-columns:1fr}.taller-fotos{max-width:420px;justify-self:center}}
+
+/* Cuidados */
+.cuidados{background:var(--lienzo-2);border-block:1px solid var(--linea)}
+.cuidados-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,32px)}
+.cuidado{background:var(--lienzo);border:2.5px solid var(--tinta);border-radius:22px;padding:clamp(22px,3vw,34px);box-shadow:6px 6px 0 var(--c);min-width:0}
+.cuidado h3{font-size:1.6rem;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.cuidado h3 svg{width:40px;height:40px;flex:none}
+.cuidado ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.cuidado li{padding-left:30px;position:relative}
+.cuidado li::before{content:"";position:absolute;left:4px;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--c);transform:rotate(45deg)}
+.cuidado li.no::before{border-radius:50%;background:transparent;border:2.5px solid var(--c);transform:none;width:13px;height:13px}
+.nota{margin-top:20px;color:var(--tinta-suave);font-size:.95rem}
+@media (max-width:760px){.cuidados-grid{grid-template-columns:1fr}}
+
+/* Detalles / empaque */
+.detalle .wrap{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:clamp(16px,3vw,32px);align-items:center}
+.detalle img{height:auto;border-radius:18px;border:2.5px solid var(--tinta);aspect-ratio:1/1;object-fit:cover;width:100%}
+.detalle-txt{min-width:0}
+.detalle h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.detalle p{margin-top:14px;color:var(--tinta-suave)}
+@media (max-width:820px){.detalle .wrap{grid-template-columns:1fr 1fr}.detalle-txt{grid-column:1/-1;order:-1}}
+
+/* Contacto */
+.contacto{padding-bottom:clamp(64px,8vw,100px)}
+.contacto-caja{background:var(--turquesa);color:#fff;border:3px solid var(--tinta);border-radius:32px;box-shadow:10px 10px 0 var(--sombra);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,56px);position:relative;overflow:hidden}
+.contacto-caja h2{font-size:clamp(2.2rem,5.4vw,4rem);color:#fff;text-shadow:.05em .05em 0 #161514}
+.contacto-caja p{margin-top:16px;font-size:1.1rem;max-width:40ch;color:rgba(255,255,255,.92)}
+.contacto-caja .acciones .btn{border-color:#161514;box-shadow:4px 4px 0 #161514}
+.contacto-caja .btn-blanco{background:#fff;color:#161514}
+.canales{list-style:none;margin:0;padding:0;display:grid;gap:14px;align-content:center;min-width:0}
+.canales li{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.55);border-radius:16px;padding:14px 18px}
+.canales small{display:block;font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.canales a,.canales b{font-weight:700;font-size:1.12rem;text-decoration:none;color:#fff;word-break:break-word}
+.canales a:hover{text-decoration:underline}
+@media (max-width:820px){.contacto-caja{grid-template-columns:1fr}}
+
+/* Footer */
+footer{border-top:1px solid var(--linea);padding-block:36px calc(36px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;font-size:.92rem;color:var(--tinta-suave)}
+footer img{width:72px;height:auto}
+footer .redes{display:flex;gap:14px}
+footer .redes a{width:42px;height:42px;display:grid;place-items:center;border:2px solid var(--tinta);border-radius:50%;color:var(--tinta)}
+footer .redes svg{width:20px;height:20px}
+
+/* WhatsApp flotante */
+.wa-flot{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;border:2.5px solid #161514;box-shadow:4px 4px 0 #161514;transition:transform .15s}
+.wa-flot:hover{transform:scale(1.06) rotate(-6deg)}
+.wa-flot svg{width:30px;height:30px}
+
+/* Aparición suave (visible por defecto; solo se anima si hay JS) */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.visto{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.43-9.43a9.37 9.37 0 0 1 9.42 9.44c0 5.2-4.23 9.42-9.43 9.42m8.02-17.44A11.26 11.26 0 0 0 12.05.75C5.8.75.72 5.83.72 12.08c0 2 .52 3.95 1.52 5.66L.62 23.25l5.64-1.48a11.3 11.3 0 0 0 5.79 1.47h.01c6.25 0 11.33-5.08 11.33-11.33 0-3.03-1.18-5.87-3.32-8.01"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 2.5h10A4.5 4.5 0 0 1 21.5 7v10a4.5 4.5 0 0 1-4.5 4.5H7A4.5 4.5 0 0 1 2.5 17V7A4.5 4.5 0 0 1 7 2.5Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.6 21.5v-8.2h2.8l.42-3.2H13.6V8.05c0-.93.26-1.56 1.6-1.56h1.7V3.63a23 23 0 0 0-2.48-.13c-2.46 0-4.14 1.5-4.14 4.25v2.36H7.5v3.2h2.78v8.2h3.32Z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="CÁSPITA.Custom, inicio">
+      <img src="img/logo.webp" alt="" width="520" height="373">
+      <span>CÁSPITA<small>CUSTOM</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#pintamos">Qué pintamos</a>
+      <a href="#galeria">Galería</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="#pinta-libre">Talleres</a>
+      <a href="#cuidados">Cuidados</a>
+    </nav>
+    <a class="btn btn-wa" href="https://wa.me/525515341803?text=Hola%20C%C3%A1spita%2C%20quiero%20cotizar%20un%20dise%C3%B1o%20personalizado" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span class="txt">Cotizar</span></a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="titulo">
+    <div class="wrap">
+      <div class="hero-txt">
+        <span class="mano">Loqueando tu mundo ✦</span>
+        <h1 id="titulo">CÁSPITA<span class="cust">CUSTOM</span></h1>
+        <p class="lema"><strong>Pintando para personas diferentes.</strong> Tenis, chamarras y tote bags pintados a mano en la Ciudad de México. Tú nos cuentas la idea y nosotros la convertimos en una pieza única.</p>
+        <div class="acciones">
+          <a class="btn btn-wa" href="https://wa.me/525515341803?text=Hola%20C%C3%A1spita%2C%20quiero%20cotizar%20un%20dise%C3%B1o%20personalizado" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotiza por WhatsApp</a>
+          <a class="btn" href="#galeria">Ver trabajos</a>
+        </div>
+        <ul class="datos">
+          <li style="--c:var(--turquesa)">Pintado 100% a mano</li>
+          <li style="--c:var(--mostaza)">Envíos gratis a todo México</li>
+          <li style="--c:var(--morado)">Taller en CDMX</li>
+        </ul>
+      </div>
+      <div class="collage" aria-hidden="false">
+        <figure class="sticker s1"><img src="img/c-koi.webp" alt="Chamarra de mezclilla pintada con un pez koi" width="720" height="900"><figcaption>chamarra koi</figcaption></figure>
+        <figure class="sticker s2"><img src="img/c-ataraxia.webp" alt="Chamarra con árbol de colores y raíces de fuego" width="675" height="900"><figcaption>“Ataraxia”</figcaption></figure>
+        <figure class="sticker s3"><img src="img/t-koi.webp" alt="Tenis blancos pintados con un koi entre hojas" width="720" height="720"><figcaption>tenis koi</figcaption></figure>
+        <svg class="forma f-tri" viewBox="0 0 60 60" aria-hidden="true"><path d="M8 52 30 6l22 46Z" fill="var(--amarillo)" stroke="var(--tinta)" stroke-width="3" stroke-linejoin="round"/></svg>
+        <svg class="forma f-zz" viewBox="0 0 120 30" aria-hidden="true"><path d="M4 18c10-14 18-14 28 0s18 14 28 0 18-14 28 0 18 14 28 0" fill="none" stroke="var(--morado)" stroke-width="6" stroke-linecap="round"/></svg>
+        <svg class="forma f-sol" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="var(--mostaza)"/><circle cx="26" cy="30" r="4" fill="var(--turquesa)"/><circle cx="50" cy="52" r="4" fill="var(--turquesa)"/><circle cx="52" cy="26" r="4" fill="var(--rosa)"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="cinta-caja" aria-hidden="true"><div class="cinta">
+    <div class="cinta-track">
+      <span>Tenis <i style="--c:var(--turquesa)"></i></span><span>Chamarras <i style="--c:var(--mostaza)"></i></span><span>Tote bags <i style="--c:var(--rosa)"></i></span><span>Cuadros <i style="--c:var(--amarillo)"></i></span><span>Retratos de mascotas <i style="--c:var(--morado)"></i></span><span>Fundas <i style="--c:var(--turquesa)"></i></span><span>Regalos únicos <i style="--c:var(--mostaza)"></i></span>
+      <span>Tenis <i style="--c:var(--turquesa)"></i></span><span>Chamarras <i style="--c:var(--mostaza)"></i></span><span>Tote bags <i style="--c:var(--rosa)"></i></span><span>Cuadros <i style="--c:var(--amarillo)"></i></span><span>Retratos de mascotas <i style="--c:var(--morado)"></i></span><span>Fundas <i style="--c:var(--turquesa)"></i></span><span>Regalos únicos <i style="--c:var(--mostaza)"></i></span>
+    </div>
+  </div></div>
+
+  <section id="pintamos" aria-labelledby="t-pintamos">
+    <div class="wrap">
+      <div class="cabeza reveal">
+        <div><span class="eyebrow">Qué pintamos</span><h2 id="t-pintamos">Tu idea, en lo que te pones</h2></div>
+        <p>Cada pieza se dibuja y se pinta a mano con pinturas para tela y piel. No hay dos iguales, aunque el diseño se repita.</p>
+      </div>
+      <div class="lienzos">
+        <a class="lienzo reveal" href="#galeria" data-ir="tenis" style="--c:var(--turquesa)">
+          <div class="foto"><img src="img/t-cerezos-t.webp" alt="Tenis blancos con ramas de cerezo pintadas" loading="lazy" width="452" height="480"></div>
+          <h3>Tenis</h3>
+          <p>Air Force, Jordan, Converse y más. Pintamos sobre tenis nuevos o sobre los tuyos.</p>
+        </a>
+        <a class="lienzo reveal" href="#galeria" data-ir="chamarras" style="--c:var(--mostaza)">
+          <div class="foto"><img src="img/c-mexico-t.webp" alt="Chamarra de mezclilla con calendario azteca pintado" loading="lazy" width="480" height="480"></div>
+          <h3>Chamarras</h3>
+          <p>Mezclilla y piel con diseños en la espalda, mangas o cuello.</p>
+        </a>
+        <a class="lienzo reveal" href="#galeria" data-ir="bolsas" style="--c:var(--rosa)">
+          <div class="foto"><img src="img/b-cdmx-t.webp" alt="Tote bag pintada con una casona de la CDMX" loading="lazy" width="384" height="480"></div>
+          <h3>Tote bags</h3>
+          <p>Bolsas de manta para diario, para regalar o para tu marca.</p>
+        </a>
+        <a class="lienzo reveal" href="#galeria" data-ir="arte" style="--c:var(--morado)">
+          <div class="foto"><img src="img/a-perro-t.webp" alt="Retrato pintado de un perrito" loading="lazy" width="419" height="480"></div>
+          <h3>Cuadros y más</h3>
+          <p>Retratos de mascotas, cuadros, fundas de celular y regalos únicos.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" class="galeria-sec" aria-labelledby="t-galeria">
+    <div class="wrap">
+      <div class="cabeza reveal">
+        <div><span class="eyebrow">Galería</span><h2 id="t-galeria">Piezas que ya andan por ahí</h2></div>
+        <p>Una selección de pedidos reales. Toca una foto para verla en grande.</p>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar galería">
+        <button class="filtro" type="button" data-filtro="todo" aria-pressed="true">Todo</button>
+        <button class="filtro" type="button" data-filtro="tenis" aria-pressed="false">Tenis</button>
+        <button class="filtro" type="button" data-filtro="chamarras" aria-pressed="false">Chamarras</button>
+        <button class="filtro" type="button" data-filtro="bolsas" aria-pressed="false">Tote bags</button>
+        <button class="filtro" type="button" data-filtro="arte" aria-pressed="false">Cuadros y más</button>
+      </div>
+      <div class="galeria" id="galeria-grid">
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-koi.webp"><img src="img/t-koi-t.webp" alt="Tenis con pez koi entre hojas" loading="lazy" width="480" height="480"><span>Tenis con pez koi entre hojas</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-ataraxia.webp"><img src="img/c-ataraxia-t.webp" alt="Chamarra “Ataraxia”: árbol de colores y raíces de fuego" loading="lazy" width="360" height="480"><span>Chamarra “Ataraxia”: árbol de colores y raíces de fuego</span></button>
+        <button class="pieza" type="button" data-cat="bolsas" data-full="img/b-fresa.webp"><img src="img/b-fresa-t.webp" alt="Tote bag “Señora Fresa”" loading="lazy" width="360" height="480"><span>Tote bag “Señora Fresa”</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-cerezos2.webp"><img src="img/t-cerezos2-t.webp" alt="Tenis de cerezos con kanji" loading="lazy" width="480" height="451"><span>Tenis de cerezos con kanji</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-koi.webp"><img src="img/c-koi-t.webp" alt="Chamarra de mezclilla con koi" loading="lazy" width="384" height="480"><span>Chamarra de mezclilla con koi</span></button>
+        <button class="pieza" type="button" data-cat="arte" data-full="img/a-perro.webp"><img src="img/a-perro-t.webp" alt="Retrato de mascota en lienzo" loading="lazy" width="419" height="480"><span>Retrato de mascota en lienzo</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-ryu.webp"><img src="img/t-ryu-t.webp" alt="Colección RYŪ: dragones en tres colores" loading="lazy" width="384" height="480"><span>Colección RYŪ: dragones en tres colores</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-flamas.webp"><img src="img/c-flamas-t.webp" alt="Mangas con flamas de colores" loading="lazy" width="360" height="480"><span>Mangas con flamas de colores</span></button>
+        <button class="pieza" type="button" data-cat="bolsas" data-full="img/b-cdmx.webp"><img src="img/b-cdmx-t.webp" alt="Tote bag con casona de la CDMX" loading="lazy" width="384" height="480"><span>Tote bag con casona de la CDMX</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-brillos.webp"><img src="img/t-brillos-t.webp" alt="Jordan plateados con iniciales" loading="lazy" width="407" height="480"><span>Jordan plateados con iniciales</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-mexico.webp"><img src="img/c-mexico-t.webp" alt="Chamarra con calendario azteca" loading="lazy" width="480" height="480"><span>Chamarra con calendario azteca</span></button>
+        <button class="pieza" type="button" data-cat="arte" data-full="img/a-pareja.webp"><img src="img/a-pareja-t.webp" alt="Cuadro pop de pareja" loading="lazy" width="383" height="480"><span>Cuadro pop de pareja</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-color.webp"><img src="img/t-color-t.webp" alt="Air Force multicolor" loading="lazy" width="384" height="480"><span>Air Force multicolor</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-metatron.webp"><img src="img/c-metatron-t.webp" alt="Chamarra con geometría sagrada" loading="lazy" width="480" height="480"><span>Chamarra con geometría sagrada</span></button>
+        <button class="pieza" type="button" data-cat="bolsas" data-full="img/b-papaya.webp"><img src="img/b-papaya-t.webp" alt="Tote bag “Señora Papaya”" loading="lazy" width="360" height="480"><span>Tote bag “Señora Papaya”</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-hongos.webp"><img src="img/t-hongos-t.webp" alt="Converse con hongos y helecho" loading="lazy" width="480" height="479"><span>Converse con hongos y helecho</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-venus.webp"><img src="img/c-venus-t.webp" alt="Chamarra “El nacimiento de Venus”" loading="lazy" width="480" height="480"><span>Chamarra “El nacimiento de Venus”</span></button>
+        <button class="pieza" type="button" data-cat="arte" data-full="img/a-playa.webp"><img src="img/a-playa-t.webp" alt="Cuadro de playa, padre e hijo" loading="lazy" width="384" height="480"><span>Cuadro de playa, padre e hijo</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-azul.webp"><img src="img/t-azul-t.webp" alt="Tenis estilo caricatura en azul" loading="lazy" width="480" height="479"><span>Tenis estilo caricatura en azul</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-fenix.webp"><img src="img/c-fenix-t.webp" alt="Chamarra con fénix y flores" loading="lazy" width="360" height="480"><span>Chamarra con fénix y flores</span></button>
+        <button class="pieza" type="button" data-cat="bolsas" data-full="img/b-acida.webp"><img src="img/b-acida-t.webp" alt="Tote bag “Señora Ácida”" loading="lazy" width="360" height="480"><span>Tote bag “Señora Ácida”</span></button>
+        <button class="pieza" type="button" data-cat="arte" data-full="img/a-perro2.webp"><img src="img/a-perro2-t.webp" alt="Retrato de perrito en acuarela" loading="lazy" width="480" height="480"><span>Retrato de perrito en acuarela</span></button>
+        <button class="pieza" type="button" data-cat="chamarras" data-full="img/c-noche.webp"><img src="img/c-noche-t.webp" alt="Chamarra blanca con dibujo de línea" loading="lazy" width="467" height="480"><span>Chamarra blanca con dibujo de línea</span></button>
+        <button class="pieza" type="button" data-cat="bolsas" data-full="img/b-why.webp"><img src="img/b-why-t.webp" alt="Tote bag “Why are we like this?”" loading="lazy" width="384" height="480"><span>Tote bag “Why are we like this?”</span></button>
+        <button class="pieza" type="button" data-cat="arte" data-full="img/a-funda.webp"><img src="img/a-funda-t.webp" alt="Funda de celular pintada" loading="lazy" width="384" height="480"><span>Funda de celular pintada</span></button>
+        <button class="pieza" type="button" data-cat="arte" data-full="img/a-botella.webp"><img src="img/a-botella-t.webp" alt="Botella decorada para festejo" loading="lazy" width="384" height="480"><span>Botella decorada para festejo</span></button>
+        <button class="pieza" type="button" data-cat="tenis" data-full="img/t-cerezos.webp"><img src="img/t-cerezos-t.webp" alt="Air Force con ramas de cerezo" loading="lazy" width="452" height="480"><span>Air Force con ramas de cerezo</span></button>
+      </div>
+      <p class="mas-ig"><a class="btn" href="https://www.instagram.com/_caspitacustom_mx/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Ver más en Instagram</a></p>
+    </div>
+  </section>
+
+  <section id="proceso" class="proceso" aria-labelledby="t-proceso">
+    <div class="wrap">
+      <div class="cabeza reveal">
+        <div><span class="eyebrow">Cómo funciona</span><h2 id="t-proceso">De la idea a tus pies</h2></div>
+        <p>Así trabajamos cada pedido personalizado, desde el primer mensaje hasta que llega a tu casa.</p>
+      </div>
+      <ol class="pasos">
+        <li class="paso reveal" style="--c:var(--amarillo)"><h3>Cuéntanos tu idea</h3><p>Escríbenos por WhatsApp o DM con tus referencias: personaje, colores, frase, la talla y el modelo de la prenda.</p></li>
+        <li class="paso reveal" style="--c:var(--rosa)"><h3>Boceto y cotización</h3><p>Te proponemos el diseño y el precio según el tamaño y el detalle. Pregunta por nuestras facilidades de pago.</p></li>
+        <li class="paso reveal" style="--c:var(--turquesa)"><h3>Lo pintamos a mano</h3><p>Dibujamos, pintamos capa por capa y sellamos la pintura para que aguante el uso diario.</p></li>
+        <li class="paso reveal" style="--c:var(--mostaza)"><h3>Te lo enviamos</h3><p>Envío gratis a todo México, con su tarjeta de cuidados. En CDMX también podemos acordar la entrega.</p></li>
+      </ol>
+      <div class="proceso-extra">
+        <div class="proceso-fotos reveal">
+          <img src="img/artista-t.webp" alt="La artista pintando unos tenis blancos en su taller" loading="lazy" width="422" height="480">
+          <img src="img/t-ryu-t.webp" alt="Colección RYŪ: tenis con dragones en tres colores" loading="lazy" width="384" height="480">
+          <img src="img/c-calavera-t.webp" alt="Chamarra negra con calavera y flores" loading="lazy" width="480" height="480">
+        </div>
+        <div class="reveal">
+          <p class="mano">“Hacer lo que amas nunca es una pérdida de tiempo.”</p>
+          <p>Detrás de cada pedido hay una artista con pincel en mano. Desde nuestro taller en la CDMX dibujamos y pintamos cada pieza, sin estampados ni impresiones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pinta-libre" class="taller" aria-labelledby="t-taller">
+    <div class="wrap">
+      <div class="taller-fotos reveal">
+        <figure class="sticker t1"><img src="img/taller-t.webp" alt="Mesa al aire libre con pinturas y tote bags durante el taller" loading="lazy" width="415" height="480"></figure>
+        <figure class="sticker t2"><img src="img/taller2-t.webp" alt="Personas pintando en el taller Pinta Libre en un parque" loading="lazy" width="451" height="480"></figure>
+      </div>
+      <div class="taller-txt reveal">
+        <span class="eyebrow">Talleres</span>
+        <h2 id="t-taller"><small>Ven a pintar con nosotros</small>Pinta Libre</h2>
+        <p>Talleres de arte al aire libre en la CDMX para tomarte un descanso de la rutina. Pintas tu propia tote bag, sin necesidad de experiencia, y te la llevas a casa.</p>
+        <ul class="incluye">
+          <li>Tote bag</li><li>Pinturas y pinceles</li><li>Guía de la artista</li><li>Cupo limitado</li>
+        </ul>
+        <div class="acciones">
+          <a class="btn btn-wa" href="https://wa.me/525515341803?text=Hola%20C%C3%A1spita%2C%20%C2%BFcu%C3%A1ndo%20es%20el%20pr%C3%B3ximo%20taller%20Pinta%20Libre%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Próximas fechas</a>
+          <a class="btn" href="https://www.instagram.com/_caspitacustom_mx/" target="_blank" rel="noopener">Síguenos para enterarte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cuidados" class="cuidados" aria-labelledby="t-cuidados">
+    <div class="wrap">
+      <div class="cabeza reveal">
+        <div><span class="eyebrow">Cuidados</span><h2 id="t-cuidados">Para que tu pieza dure años</h2></div>
+        <p>La pintura queda sellada, pero sigue siendo arte hecho a mano. Unos cuantos cuidados hacen la diferencia.</p>
+      </div>
+      <div class="cuidados-grid">
+        <article class="cuidado reveal" style="--c:var(--turquesa)">
+          <h3><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 28c6 0 10-3 13-8l4 2c3 2 8 3 15 3v6H4Z" fill="var(--turquesa)" stroke="var(--tinta)" stroke-width="2.5" stroke-linejoin="round"/></svg>Tenis</h3>
+          <ul>
+            <li>Limpia con un paño húmedo o toallita, sin tallar fuerte sobre lo pintado.</li>
+            <li>Déjalos secar a la sombra si se mojan.</li>
+            <li class="no">Nada de lavadora, secadora ni dejarlos en remojo.</li>
+            <li class="no">Evita solventes, cloro o limpiadores abrasivos.</li>
+          </ul>
+        </article>
+        <article class="cuidado reveal" style="--c:var(--mostaza)">
+          <h3><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M13 5h14l9 6-4 9-4-2v17H12V18l-4 2-4-9Z" fill="var(--mostaza)" stroke="var(--tinta)" stroke-width="2.5" stroke-linejoin="round"/></svg>Chamarras y bolsas</h3>
+          <ul>
+            <li>Lava a mano con agua fría y jabón neutro, con la prenda al revés.</li>
+            <li>Seca a la sombra, extendida o en gancho.</li>
+            <li class="no">No planches sobre la pintura ni uses secadora.</li>
+            <li class="no">Evita el cloro y el suavizante sobre el diseño.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="nota">¿Tienes dudas con tu pieza? Escríbenos y te decimos cómo cuidarla.</p>
+    </div>
+  </section>
+
+  <section class="detalle" aria-labelledby="t-detalle">
+    <div class="wrap">
+      <img class="reveal" src="img/plaquita-t.webp" alt="Plaquita dorada para agujetas con la marca CÁSPITA Custom" loading="lazy" width="480" height="480">
+      <img class="reveal" src="img/empaque-t.webp" alt="Tarjetas de agradecimiento y cuidados de CÁSPITA" loading="lazy" width="384" height="480">
+      <div class="detalle-txt reveal">
+        <span class="eyebrow">El detalle</span>
+        <h2 id="t-detalle">Cuidamos cada pieza hasta que llega a ti</h2>
+        <p>Cada pedido sale con nuestra plaquita dorada CÁSPITA y su tarjeta de cuidados. Ideal también para regalar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto" aria-labelledby="t-contacto">
+    <div class="wrap">
+      <div class="contacto-caja reveal">
+        <div>
+          <h2 id="t-contacto">¿Qué vamos a pintar?</h2>
+          <p>Mándanos tu idea con fotos de referencia y te respondemos con propuesta y cotización.</p>
+          <div class="acciones">
+            <a class="btn btn-blanco" href="https://wa.me/525515341803?text=Hola%20C%C3%A1spita%2C%20quiero%20cotizar%20un%20dise%C3%B1o%20personalizado" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+          </div>
+        </div>
+        <ul class="canales">
+          <li><small>WhatsApp</small><b>55 1534 1803</b></li>
+          <li><small>Instagram · cotizaciones por DM</small><a href="https://www.instagram.com/_caspitacustom_mx/" target="_blank" rel="noopener">@_caspitacustom_mx</a></li>
+          <li><small>Facebook</small><a href="https://www.facebook.com/caspita25" target="_blank" rel="noopener">CÁSPITA.Custom</a></li>
+          <li><small>Dónde estamos</small><b>Ciudad de México · envíos a todo el país</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.webp" alt="CÁSPITA.Custom" width="520" height="373" loading="lazy">
+    <p>© <span id="anio">2026</span> CÁSPITA.Custom · Pintando para personas diferentes · CDMX</p>
+    <div class="redes">
+      <a href="https://www.instagram.com/_caspitacustom_mx/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+      <a href="https://www.facebook.com/caspita25" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+      <a href="https://wa.me/525515341803" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flot" href="https://wa.me/525515341803?text=Hola%20C%C3%A1spita%2C%20quiero%20cotizar%20un%20dise%C3%B1o%20personalizado" target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<dialog class="visor" id="visor" aria-label="Foto ampliada">
+  <figure><img id="visor-img" alt=""><figcaption id="visor-txt"></figcaption></figure>
+  <button class="ctrl cerrar" type="button" id="visor-cerrar" aria-label="Cerrar">✕</button>
+  <button class="ctrl prev" type="button" id="visor-prev" aria-label="Anterior">‹</button>
+  <button class="ctrl next" type="button" id="visor-next" aria-label="Siguiente">›</button>
+</dialog>
+
+<script>
+(function(){
+  var d=document;d.documentElement.classList.add('js');
+  var a=d.getElementById('anio');if(a)a.textContent=new Date().getFullYear();
+
+  // Filtros de galería
+  var piezas=[].slice.call(d.querySelectorAll('.pieza'));
+  var botones=[].slice.call(d.querySelectorAll('.filtro'));
+  function filtrar(f){
+    botones.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.filtro===f))});
+    piezas.forEach(function(p){p.hidden=!(f==='todo'||p.dataset.cat===f)});
+  }
+  botones.forEach(function(b){b.addEventListener('click',function(){filtrar(b.dataset.filtro)})});
+  [].slice.call(d.querySelectorAll('[data-ir]')).forEach(function(l){l.addEventListener('click',function(){filtrar(l.dataset.ir)})});
+
+  // Visor
+  var v=d.getElementById('visor'),vi=d.getElementById('visor-img'),vt=d.getElementById('visor-txt'),actual=0;
+  function visibles(){return piezas.filter(function(p){return !p.hidden})}
+  function mostrar(i){var vs=visibles();if(!vs.length)return;actual=(i+vs.length)%vs.length;var p=vs[actual];vi.src=p.dataset.full;vi.alt=p.querySelector('img').alt;vt.textContent=p.querySelector('span').textContent}
+  piezas.forEach(function(p){p.addEventListener('click',function(){mostrar(visibles().indexOf(p));if(v.showModal)v.showModal()})});
+  d.getElementById('visor-cerrar').onclick=function(){v.close()};
+  d.getElementById('visor-prev').onclick=function(){mostrar(actual-1)};
+  d.getElementById('visor-next').onclick=function(){mostrar(actual+1)};
+  v.addEventListener('click',function(e){if(e.target===v)v.close()});
+  v.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')mostrar(actual-1);if(e.key==='ArrowRight')mostrar(actual+1)});
+
+  // Aparición suave
+  var r=[].slice.call(d.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    r.forEach(function(el){io.observe(el)});
+  } else r.forEach(function(el){el.classList.add('visto')});
+})();
+</script>
+</body>
+</html>
